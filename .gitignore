@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build / test output
+coverage/
+dist/
+*.tsbuildinfo
+
+# Pi local state
+.pi/
+
+# OS / editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log

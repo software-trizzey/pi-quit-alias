@@ -1,0 +1,14 @@
+- [x] **Red:** Add a failing test for interactive input `":q"` after trimming whitespace, asserting the extension requests `ctx.shutdown()` and returns `{ action: "handled" }`.
+- [x] **Green:** Implement the minimal `input` event handler for `event.source === "interactive"` and `event.text.trim() === ":q"` so the test passes.
+- [x] **Red:** Add a failing test proving non-`":q"` interactive input is not intercepted and returns `{ action: "continue" }`.
+- [x] **Green:** Ensure all other interactive input flows through untouched.
+- [x] **Red:** Add a failing test proving non-interactive sources are ignored entirely.
+- [x] **Green:** Gate the alias logic to interactive input only.
+- [x] **Red:** Add a failing test confirming existing `/quit` behavior is unchanged by the extension.
+- [x] **Green:** Keep the extension isolated so it only adds `:q` and does not alter `/quit`.
+- [x] **Red:** Add a failing test for whitespace variants like `"  :q  "` to confirm trimming behavior.
+- [x] **Green:** Confirm the trim-based match works consistently.
+- [x] **Red:** Add a minimal load/shape test for the default export so the extension exposes the expected entry point.
+- [x] **Green:** Create the tiny `index.ts` extension implementation with no extra state, UI, or commands.
+- [x] **Red:** Add a lightweight verification step for documentation/packaging expectations if needed.
+- [x] **Green:** Add only the necessary `README.md` / `package.json` support if the build/load flow requires it, keeping the extension dependency-free.
