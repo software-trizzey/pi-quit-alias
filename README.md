@@ -1,13 +1,13 @@
 # Pi Quit Alias Extension
 
-A tiny Pi extension that adds `:q` as a quit alias in interactive mode, matching Pi's existing `/quit` behavior.
+A tiny Pi extension that adds `:q` and `:Q` as quit aliases in interactive mode, matching Pi's existing `/quit` behavior.
 
 Use the global install method below if you want this to auto-load in every new Pi session, no matter which project you open. Use the project-local method only if you want it limited to this repository.
 
 ## What it does
 
 - Intercepts raw interactive input
-- Trims whitespace and checks for `:q`
+- Trims whitespace, normalizes case, and checks for `:q`
 - Calls `ctx.shutdown()` for a graceful exit
 - Returns `handled` so Pi does not continue processing the input
 - Leaves all other input untouched

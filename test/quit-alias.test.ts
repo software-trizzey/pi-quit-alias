@@ -39,6 +39,13 @@ test("handles :q from interactive input after trimming whitespace", async () => 
   assert.equal(shutdownCount, 1);
 });
 
+test("handles :Q from interactive input by normalizing case", async () => {
+  const { result, shutdownCount } = await runInput(" :Q ");
+
+  assert.deepEqual(result, { action: "handled" });
+  assert.equal(shutdownCount, 1);
+});
+
 test("passes through other interactive input unchanged", async () => {
   const { result, shutdownCount } = await runInput("/quit");
 
@@ -48,6 +55,13 @@ test("passes through other interactive input unchanged", async () => {
 
 test("ignores non-interactive :q input", async () => {
   const { result, shutdownCount } = await runInput(":q", "rpc");
+
+  assert.deepEqual(result, { action: "continue" });
+  assert.equal(shutdownCount, 0);
+});
+
+test("ignores non-interactive :Q input", async () => {
+  const { result, shutdownCount } = await runInput(":Q", "rpc");
 
   assert.deepEqual(result, { action: "continue" });
   assert.equal(shutdownCount, 0);
